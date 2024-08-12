@@ -21,7 +21,28 @@ class App extends Component {
       imgurl: '',
       box: {}, //added later for the value of the blue border face
       route: 'signin',
+      user : {
+        name:'',
+        email: '',
+        password : '',
+        entries: 0,
+        joined : ''
+      }
     };
+  }
+
+  loadUser = (data) =>{
+    this.setState ({
+      user : {
+        name:data.name,
+        email : data.email,
+        password : data.password,
+        entries :data.entries,
+        joined : data.joined
+
+      }
+    })
+    console.log(this.state);
   }
 
   inputChange = (event) => {
@@ -49,18 +70,67 @@ class App extends Component {
     this.setState({ box: box });
   };
 
+  // buttonClick = () => {
+  //   this.setState(
+  //     { imgurl: this.state.input },
+  //     () => {
+  //       predictFaces(this.state.imgurl) //using predict function from CLar.js
+  //         .then(response =>{
+  //               if (response){
+  //                   fetch('http://localhost:3000/image' , {
+  //                     method: 'put',
+  //                     headers: { 'Content-Type': 'application/json' },
+  //                     body: JSON.stringify({
+  //                       name : this.state.user.name
+  //                     })
+  //                     .then(response=>response.json())
+  //                     .then(cnt => {
+  //                        this.setState(Object.assign(this.state.user , { entries : cnt}));
+  //                     })
+  //                   })
+  //           this.displayFaceBox(this.calculateFaceLocations(response))
+  //         }
+  //       ) 
+          
+  //     }
+  //   );
+  // };
+
   buttonClick = () => {
     this.setState(
       { imgurl: this.state.input },
       () => {
-        predictFaces(this.state.imgurl) //using predict function from CLar.js
-          .then((response) =>
-            this.displayFaceBox(this.calculateFaceLocations(response))
-          )
-          .catch((err) => console.log('Error during face prediction:', err));
+        predictFaces(this.state.imgurl) // Using predict function from Clar.js
+          .then(response => {
+            if (response) {
+              // Update the image count on the server
+              fetch('http://localhost:3000/image', {
+                method: 'put',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  name: this.state.user.name
+                })
+              })
+              .then(response => response.json())
+              .then(cnt => {
+                // Update the state with new entries count
+                this.setState(prevState => ({
+                  user: {
+                    ...prevState.user,
+                    entries: cnt
+                  }
+                }));
+              });
+
+              // Display the face box
+              this.displayFaceBox(this.calculateFaceLocations(response));
+            }
+          })
+          .catch(err => console.log('Error:', err)); // Handle any errors from predictFaces
       }
     );
   };
+
 
   onRoutChange = (route) => {
     this.setState({ route: route });
@@ -80,7 +150,7 @@ class App extends Component {
                   {/* <p>Face detection test project</p> */}
                   <Navigation onRoutChange={this.onRoutChange} />
                 </div>
-                <Rank />
+                <Rank name = {this.state.user.name} entries={this.state.user.entries}/>
 
                 <Imagelink
                   inputChange={this.inputChange}
@@ -98,9 +168,9 @@ class App extends Component {
           ) : (
             <div>
               {this.state.route === 'signin' ? (
-                <SignIn onRoutChange={this.onRoutChange} />
+                <SignIn loadUser={this.loadUser} onRoutChange={this.onRoutChange} />
               ) : (
-                <Register onRoutChange={this.onRoutChange} />
+                <Register loadUser = {this.loadUser} onRoutChange={this.onRoutChange} />
               )}
             </div>
           )}
