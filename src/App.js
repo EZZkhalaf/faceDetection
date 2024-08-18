@@ -8,14 +8,30 @@ import ParticlesComponent from './Components/particles';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
 import Yapping from './Components/Yapping/Yapping';
-import { predictFaces } from './Components/Clar/Clar';
+
 
 import './App.css';
 import 'tachyons';
 
+const initialState = {
+  input: '',
+  imgurl: '',
+  box: {}, //added later for the value of the blue border face
+  route: 'signin',
+  user : {
+      id :'',
+      name:'',
+      email: '',
+      password : '',
+      entries: 0,
+      joined : ''
+  }
+}
+
 class App extends Component {
   constructor() {
     super();
+<<<<<<< HEAD
     this.state = {
       input: '',
       imgurl: '',
@@ -29,6 +45,25 @@ class App extends Component {
         joined : ''
       }
     };
+=======
+    this.state = initialState;
+    }
+  
+
+  loadUser = (data) =>{
+    this.setState ({
+      user : {
+        id : data.userid,
+        name:data.username,
+        email : data.useremail,
+        password : data.password,
+        entries :data.entries,
+        joined : data.joined
+
+      }
+    })
+    console.log(this.state);
+>>>>>>> 178b30e7 (the final form - you need to connect to the backend)
   }
 
   loadUser = (data) =>{
@@ -49,20 +84,25 @@ class App extends Component {
     this.setState({ input: event.target.value });
   };
 
-  calculateFaceLocations = (regions) => {
-    //a ready form from clarifai and updated by gpt
-    const cFace = regions[0].region_info.bounding_box;
-    const img = document.getElementById('imgg');
-    const width = Number(img.width);
-    const height = Number(img.height);
-    console.log(width, height);
 
-    return {
-      leftcol: cFace.left_col * width,
-      toprow: cFace.top_row * height,
-      rightcol: width - cFace.right_col * width,
-      bottomrow: height - cFace.bottom_row * height,
-    };
+  calculateFaceLocations = (regions) => {
+    if (regions && regions.length > 0) {
+      const cFace = regions[0].region_info.bounding_box;
+      const img = document.getElementById('imgg');
+      const width = Number(img.width);
+      const height = Number(img.height);
+      console.log(width, height);
+  
+      return {
+        leftcol: cFace.left_col * width,
+        toprow: cFace.top_row * height,
+        rightcol: width - cFace.right_col * width,
+        bottomrow: height - cFace.bottom_row * height,
+      };
+    } else {
+      console.log("No face regions detected");
+      return {};  // Return an empty object or handle it as needed
+    }
   };
 
   displayFaceBox = (box) => {
@@ -70,6 +110,7 @@ class App extends Component {
     this.setState({ box: box });
   };
 
+<<<<<<< HEAD
   // buttonClick = () => {
   //   this.setState(
   //     { imgurl: this.state.input },
@@ -130,10 +171,63 @@ class App extends Component {
       }
     );
   };
+=======
+
+buttonClick = () => {
+  this.setState(
+    { imgurl: this.state.input },
+
+    () => {
+      fetch('http://localhost:3000/detectFaces', { // here is deleted the predictfaces function and the Clasr.js file and moved it to the backend code for the security of the api 
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          imgurl: this.state.imgurl
+        })
+      })
+      .then(response => response.json())
+      .then(response => {
+          if (response) {
+            // Update the image count on the server
+            fetch('http://localhost:3000/image', {
+              method: 'put',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                id: this.state.user.id
+              })
+            })
+            .then(response => response.json())
+            .then(cnt => {
+              // Update the state with new entries count
+              this.setState(prevState => ({
+                user: {
+                  ...prevState.user,
+                  entries: cnt
+                }
+              }));
+            });
+
+            // Display the face box
+            this.displayFaceBox(this.calculateFaceLocations(response));
+          }
+        })
+        .catch(err => console.log('Error:', err)); // Handle any errors from predictFaces
+    }
+  );
+};
+
+
+
+
+>>>>>>> 178b30e7 (the final form - you need to connect to the backend)
 
 
   onRoutChange = (route) => {
+     if(route==='signin'){
+      this.setState(initialState);
+    }
     this.setState({ route: route });
+   
   };
 
   render() {
@@ -157,12 +251,16 @@ class App extends Component {
                   buttonClick={this.buttonClick}
                 />
                 <div className='main-content'>
+                  <div>
                     <FaceReco
                     className='face-reco'
                     imgurl={this.state.imgurl}
                     box={this.state.box}
                     />
-                    {/* <Yapping /> */}
+                    </div>
+                    <div>
+                    <Yapping />
+                    </div>
                 </div>
             </div>
           ) : (

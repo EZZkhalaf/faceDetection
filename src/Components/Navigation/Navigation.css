@@ -27,6 +27,10 @@
   }
   .flexy{
     display:flex;
+<<<<<<< HEAD
+=======
+    /* background-color: #1A1A1A; */
+>>>>>>> 178b30e7 (the final form - you need to connect to the backend)
   }
   
   .button-28:disabled {

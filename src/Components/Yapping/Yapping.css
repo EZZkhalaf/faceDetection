@@ -1,7 +1,17 @@
 .yapp{
    /* Yapping.css */
 
+<<<<<<< HEAD
     margin-top: 20px;
 
   
+=======
+    margin-top: 60vh;
+
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Optional: Adjust padding as needed */
+    border-radius: 8px; /* Optional: For rounded corners */
+    margin-bottom: 20px;
+>>>>>>> 178b30e7 (the final form - you need to connect to the backend)
 }

@@ -5,7 +5,11 @@ const Yapping =() => {
     return (
         
         <div className="yapp">
+<<<<<<< HEAD
             <p style={{backgroundColor:'lightcyan', borderRadius:'100px', padding:'40px'}} className="shadow-5">
+=======
+            <p style={{  padding:'40px'}} className="">
+>>>>>>> 178b30e7 (the final form - you need to connect to the backend)
                 This project is a web-based application built using React,
                 designed to offer a seamless user experience for signing 
                 in and interacting with various features. The application 
