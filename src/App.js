@@ -9,11 +9,11 @@ import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
 import Yapping from './Components/Yapping/Yapping';
 import ThemeChange from './Components/ThemeChange/ThemeChange';
-
+import DisplayProjects from './Components/Projects/DisplayProjects';
+import XO from './Components/Projects/XOGame';
 
 import './App.css';
 import 'tachyons';
-import BackgroundChanger from './Components/ThemeChange/BackgroundChange';
 
 const initialState = {
   input: '',
@@ -53,19 +53,7 @@ class App extends Component {
     console.log(this.state);
   }
 
-  loadUser = (data) =>{
-    this.setState ({
-      user : {
-        name:data.name,
-        email : data.email,
-        password : data.password,
-        entries :data.entries,
-        joined : data.joined
-
-      }
-    })
-    console.log(this.state);
-  }
+ 
 
   inputChange = (event) => {
     this.setState({ input: event.target.value });
@@ -156,52 +144,47 @@ buttonClick = () => {
   };
 
   render() {
+    
     return (
-      <div className='App'>
-        <ParticlesComponent id='tspp' />
-
-        <div className='content'>
-          {this.state.route === 'home' ? (
+      <div className="App">
+        <div className="content">
+          {this.state.route === "XO" ? ( // Check if the route is "XO"
+            <XO onRoutChange = {this.onRoutChange}/> // Render the XO component
+          ) : this.state.route === "home" ? ( // Check if the route is "home"
             <div>
-              
-                <div className='nav-bar'>
-                  <Logo />
-                  {/* <p>Face detection test project</p> */}
-                  <Navigation onRoutChange={this.onRoutChange} />
+              <div className="nav-bar">
+                <Logo />
+                <Navigation onRoutChange={this.onRoutChange} />
+              </div>
+              <div className="cont1">
+                <div className="first">
+                  <Rank name={this.state.user.name} entries={this.state.user.entries} />
                 </div>
-                <div className='cont1'>
-                  <div className='first'>
-                      <Rank name = {this.state.user.name} entries={this.state.user.entries}/>
-                    </div>
-                    <div className='second'>
-                      <ThemeChange />
-                    </div>
+                <div className="second">
+                  <ThemeChange />
                 </div>
-
-                <Imagelink
-                  inputChange={this.inputChange}
-                  buttonClick={this.buttonClick}
-                />
-                <div className='main-content'>
-                  <div>
-                    <FaceReco
-                    className='face-reco'
+              </div>
+              <Imagelink inputChange={this.inputChange} buttonClick={this.buttonClick} />
+              <div className="main-content">
+                <div>
+                  <FaceReco
+                    className="face-reco"
                     imgurl={this.state.imgurl}
                     box={this.state.box}
-                    />
-                    </div>
-                    <div>
-                    <Yapping />
-                    <BackgroundChanger />
-                    </div>
+                  />
                 </div>
+                <div>
+                  <Yapping />
+                  <DisplayProjects onRoutChange={this.onRoutChange} />
+                </div>
+              </div>
             </div>
           ) : (
             <div>
-              {this.state.route === 'signin' ? (
+              {this.state.route === "signin" ? (
                 <SignIn loadUser={this.loadUser} onRoutChange={this.onRoutChange} />
               ) : (
-                <Register loadUser = {this.loadUser} onRoutChange={this.onRoutChange} />
+                <Register loadUser={this.loadUser} onRoutChange={this.onRoutChange} />
               )}
             </div>
           )}

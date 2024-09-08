@@ -1,0 +1,118 @@
+*{
+    color:white;
+    font-family: sans-serif;
+    transition: 0.2s ease-in-out;
+    user-select: none;
+    font-weight: 70;
+}
+h1 {
+    font-family: 'SEGA LOGO FONT';
+    font-style: normal;
+    font-weight: normal;
+    /* src: local('SEGA LOGO FONT'), url('SEGA.woff') format('woff'); */
+    }
+body{
+    background-color:#252A34;
+    margin :0;
+    padding:0;
+    width: 100vw;
+    text-align: center;
+    padding-top: 10vh;
+}
+.choose2{
+    
+    display: flex;
+    margin: auto;
+    padding: 0%;
+    gap: 40px;
+
+    
+    
+}
+.choose{
+    border:3px solid sandybrown;
+    width: 120px;
+    height: 80px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 300px;
+    position: relative;
+    
+
+    
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+.maing{
+
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    width : 350px;
+    height: 350px;
+    margin:50px auto ;
+    border: 3px solid darkgray;
+}
+.elements{
+    
+    border:3px solid darkgray ;
+    text-align: center;
+    cursor: pointer;
+
+    
+
+   
+}
+.align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 500 ;
+
+}
+.elements:hover{
+    background-color:darkgray;
+}
+.play-again{
+    color: black;
+    width: 90px;
+    height: 50px;
+    margin: 15px;
+    border-radius: 200px;
+    transition: all 0.5s;
+    border : 2px solid gold;
+    font-size:small;
+    margin-bottom:20px ;
+    z-index: 3;
+}
+
+.play-again:hover{
+    background-color: lightgreen;
+    transform: scale(1.07);
+    
+}
+#player{
+    background-color: lightseagreen;
+    border-radius: 200px;
+    display: none;
+}
+
+p{
+    margin: auto;
+}
+.homeButton{
+    color: black;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

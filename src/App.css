@@ -31,6 +31,7 @@
   z-index: 10;
   height:fit-content;
   padding: auto;
+  margin-top: 0;
 }
 .main-content {
   position: relative;
