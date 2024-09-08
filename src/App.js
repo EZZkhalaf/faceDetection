@@ -8,10 +8,12 @@ import ParticlesComponent from './Components/particles';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
 import Yapping from './Components/Yapping/Yapping';
+import ThemeChange from './Components/ThemeChange/ThemeChange';
 
 
 import './App.css';
 import 'tachyons';
+import BackgroundChanger from './Components/ThemeChange/BackgroundChange';
 
 const initialState = {
   input: '',
@@ -31,21 +33,7 @@ const initialState = {
 class App extends Component {
   constructor() {
     super();
-<<<<<<< HEAD
-    this.state = {
-      input: '',
-      imgurl: '',
-      box: {}, //added later for the value of the blue border face
-      route: 'signin',
-      user : {
-        name:'',
-        email: '',
-        password : '',
-        entries: 0,
-        joined : ''
-      }
-    };
-=======
+
     this.state = initialState;
     }
   
@@ -63,7 +51,6 @@ class App extends Component {
       }
     })
     console.log(this.state);
->>>>>>> 178b30e7 (the final form - you need to connect to the backend)
   }
 
   loadUser = (data) =>{
@@ -110,68 +97,7 @@ class App extends Component {
     this.setState({ box: box });
   };
 
-<<<<<<< HEAD
-  // buttonClick = () => {
-  //   this.setState(
-  //     { imgurl: this.state.input },
-  //     () => {
-  //       predictFaces(this.state.imgurl) //using predict function from CLar.js
-  //         .then(response =>{
-  //               if (response){
-  //                   fetch('http://localhost:3000/image' , {
-  //                     method: 'put',
-  //                     headers: { 'Content-Type': 'application/json' },
-  //                     body: JSON.stringify({
-  //                       name : this.state.user.name
-  //                     })
-  //                     .then(response=>response.json())
-  //                     .then(cnt => {
-  //                        this.setState(Object.assign(this.state.user , { entries : cnt}));
-  //                     })
-  //                   })
-  //           this.displayFaceBox(this.calculateFaceLocations(response))
-  //         }
-  //       ) 
-          
-  //     }
-  //   );
-  // };
 
-  buttonClick = () => {
-    this.setState(
-      { imgurl: this.state.input },
-      () => {
-        predictFaces(this.state.imgurl) // Using predict function from Clar.js
-          .then(response => {
-            if (response) {
-              // Update the image count on the server
-              fetch('http://localhost:3000/image', {
-                method: 'put',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  name: this.state.user.name
-                })
-              })
-              .then(response => response.json())
-              .then(cnt => {
-                // Update the state with new entries count
-                this.setState(prevState => ({
-                  user: {
-                    ...prevState.user,
-                    entries: cnt
-                  }
-                }));
-              });
-
-              // Display the face box
-              this.displayFaceBox(this.calculateFaceLocations(response));
-            }
-          })
-          .catch(err => console.log('Error:', err)); // Handle any errors from predictFaces
-      }
-    );
-  };
-=======
 
 buttonClick = () => {
   this.setState(
@@ -219,7 +145,6 @@ buttonClick = () => {
 
 
 
->>>>>>> 178b30e7 (the final form - you need to connect to the backend)
 
 
   onRoutChange = (route) => {
@@ -244,7 +169,14 @@ buttonClick = () => {
                   {/* <p>Face detection test project</p> */}
                   <Navigation onRoutChange={this.onRoutChange} />
                 </div>
-                <Rank name = {this.state.user.name} entries={this.state.user.entries}/>
+                <div className='cont1'>
+                  <div className='first'>
+                      <Rank name = {this.state.user.name} entries={this.state.user.entries}/>
+                    </div>
+                    <div className='second'>
+                      <ThemeChange />
+                    </div>
+                </div>
 
                 <Imagelink
                   inputChange={this.inputChange}
@@ -260,6 +192,7 @@ buttonClick = () => {
                     </div>
                     <div>
                     <Yapping />
+                    <BackgroundChanger />
                     </div>
                 </div>
             </div>

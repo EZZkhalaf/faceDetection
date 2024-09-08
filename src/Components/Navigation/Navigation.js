@@ -2,6 +2,9 @@ import React from "react";
 import './Navigation.css';
 const Navigation = ({onRoutChange}) =>{
     return <nav className="flexy">
+                       
+
+
                 <button 
                 onClick={() => onRoutChange('signin')}
                 className="button-28" 

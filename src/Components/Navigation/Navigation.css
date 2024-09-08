@@ -27,10 +27,8 @@
   }
   .flexy{
     display:flex;
-<<<<<<< HEAD
-=======
+
     /* background-color: #1A1A1A; */
->>>>>>> 178b30e7 (the final form - you need to connect to the backend)
   }
   
   .button-28:disabled {
@@ -48,3 +46,40 @@
     box-shadow: none;
     transform: translateY(0);
   }
+  /* Base styles for the page */
+body {
+  font-family: Arial, sans-serif;
+  transition: background-color 0.5s, color 0.5s; /* Smooth transition for theme change */
+  background-color: #ffffff; /* Default light theme background */
+  color: #000000; /* Default light theme text color */
+}
+
+/* Hidden checkbox for theme toggle */
+.theme-switch {
+  display: none;
+}
+
+/* Label styled as a button */
+.switch-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #333; /* Button color */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+.switch-button:hover {
+  background-color: #555;
+}
+
+/* Change background and text color when checkbox is checked */
+.theme-switch:checked ~ body {
+  background-color: #2c2c2c; /* Dark theme background */
+  color: #ffffff; /* Dark theme text color */
+}

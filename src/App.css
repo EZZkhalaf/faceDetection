@@ -7,12 +7,12 @@
   text-align: center;
 
 }
-#tspp{
+/* #tspp{
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
-}
+} */
 .nav-bar{
   /* box-shadow: #282c34;
   display: flex;
@@ -92,4 +92,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+.cont1{
+  display: flex;
+  justify-content: space-between;
+}
+.first{
+  margin: auto; /* Automatically centers the element in the flex container */
+  margin-left: 30%;
+}
+.second{
+  margin-left: auto; /* Pushes the element to the right end of the flex container */
+  text-align: right;
+  margin-right: 10px;
 }

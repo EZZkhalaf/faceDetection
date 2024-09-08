@@ -37,11 +37,8 @@ class Register extends React.Component {
         })
         .then(response => response.json())
         .then(user => {
-<<<<<<< HEAD
-            if (user) {
-=======
+
             if (user.id) {
->>>>>>> 178b30e7 (the final form - you need to connect to the backend)
                 this.props.loadUser(user);
                 this.props.onRoutChange('home');
             } else {

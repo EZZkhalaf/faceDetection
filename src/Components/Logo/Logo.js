@@ -1,11 +1,8 @@
 import React from 'react';
 import { Tilt } from 'react-tilt';
 import float_2402882 from './float_2402882.png'
-<<<<<<< HEAD
 
-=======
 import './Logo.css';
->>>>>>> 178b30e7 (the final form - you need to connect to the backend)
 const defaultOptions = {
 	reverse:        false,  // reverse the tilt direction
 	max:            35,     // max tilt rotation (degrees)
@@ -21,17 +18,11 @@ const defaultOptions = {
 const Logo= () =>{
     
     return (
-<<<<<<< HEAD
-        <div className=' '>
-            <Tilt className='br4 shadow-2 ' options={defaultOptions} style={{ height: 110, width: 110  }}>
-                <div> 
-                    <img src={float_2402882} />
-=======
+
         <div className=' child-1'>
             <Tilt className='br4 shadow-2 ' options={defaultOptions} style={{ height: 110, width: 110  }}>
                 <div> 
                     <img  src={float_2402882} />
->>>>>>> 178b30e7 (the final form - you need to connect to the backend)
                 </div>
             </Tilt>
         </div>

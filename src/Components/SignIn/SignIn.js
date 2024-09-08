@@ -29,11 +29,8 @@ class SignIn extends React.Component {
         })
           .then(response => response.json())
           .then(user => {
-<<<<<<< HEAD
-            if (user.name) { // Check if user.name exists
-=======
+
             if (user.userid) { // Check if user.name exists
->>>>>>> 178b30e7 (the final form - you need to connect to the backend)
               this.props.loadUser(user); 
               this.props.onRoutChange('home'); // Change route to 'home'
             } else {
@@ -44,12 +41,9 @@ class SignIn extends React.Component {
       }
       
      render() {
-<<<<<<< HEAD
-        const {onRoutChange} = this.props;
-        const {loadUser} = this.props;
-=======
+
+     
         const {onRoutChange ,loadUser} = this.props;
->>>>>>> 178b30e7 (the final form - you need to connect to the backend)
         return (
             <div>
                 <article className="br4 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center" >
