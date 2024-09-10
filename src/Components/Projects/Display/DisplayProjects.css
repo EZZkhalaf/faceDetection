@@ -1,0 +1,26 @@
+.displayProjects{
+    display: flex;
+    
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 20px;
+    overflow: none;
+    /* background-color: blueviolet; */
+}
+
+.elementt{
+    width:60vh;
+    height:50vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    margin: 30px;
+    overflow: none;
+    
+}
+button{
+    background:none;
+    border: none;
+}

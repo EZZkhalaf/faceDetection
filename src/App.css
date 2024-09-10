@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin: 0;
+  overflow: none;
 }
 .center{
   display: flex;
@@ -28,7 +30,7 @@
   display: flex;
   justify-content:flex-start;
   align-items: center;
-  z-index: 10;
+  z-index: 2;
   height:fit-content;
   padding: auto;
   margin-top: 0;
@@ -97,6 +99,7 @@
 .cont1{
   display: flex;
   justify-content: space-between;
+  margin: top 20px; 
 }
 .first{
   margin: auto; /* Automatically centers the element in the flex container */
@@ -106,4 +109,7 @@
   margin-left: auto; /* Pushes the element to the right end of the flex container */
   text-align: right;
   margin-right: 10px;
+}
+*{
+  overflow: none;
 }

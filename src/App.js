@@ -4,13 +4,13 @@ import Logo from './Components/Logo/Logo';
 import Rank from './Components/Rank/Rank';
 import Imagelink from './Components/Imagelink/Imagelink';
 import FaceReco from './Components/FaceReco/FaceReco';
-import ParticlesComponent from './Components/particles';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
 import Yapping from './Components/Yapping/Yapping';
 import ThemeChange from './Components/ThemeChange/ThemeChange';
-import DisplayProjects from './Components/Projects/DisplayProjects';
-import XO from './Components/Projects/XOGame';
+import DisplayProjects from './Components/Projects/Display/DisplayProjects';
+import XO from './Components/Projects/XO/XOGame';
+import ColorChanger from './Components/Projects/ColorChanger/ColorChanger';
 
 import './App.css';
 import 'tachyons';
@@ -101,14 +101,17 @@ buttonClick = () => {
       })
       .then(response => response.json())
       .then(response => {
-          if (response) {
+        
+          if (this.state.input && response ) {
+            
             // Update the image count on the server
             fetch('http://localhost:3000/image', {
-              method: 'put',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                id: this.state.user.id
-              })
+                method: 'put',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  id: this.state.user.id
+                })
+              
             })
             .then(response => response.json())
             .then(cnt => {
@@ -145,17 +148,22 @@ buttonClick = () => {
 
   render() {
     
+   
     return (
       <div className="App">
         <div className="content">
-          {this.state.route === "XO" ? ( // Check if the route is "XO"
-            <XO onRoutChange = {this.onRoutChange}/> // Render the XO component
+          {this.state.route === "basket" ? ( // Check if the route is "XO"
+             <ColorChanger onRoutChange={this.onRoutChange}/>
+             // Render the XO component
+          ) : this.state.route === "XO" ? ( // Check if the route is "bucket"
+                <XO onRoutChange={this.onRoutChange} />
           ) : this.state.route === "home" ? ( // Check if the route is "home"
             <div>
               <div className="nav-bar">
                 <Logo />
                 <Navigation onRoutChange={this.onRoutChange} />
               </div>
+              
               <div className="cont1">
                 <div className="first">
                   <Rank name={this.state.user.name} entries={this.state.user.entries} />
@@ -179,18 +187,15 @@ buttonClick = () => {
                 </div>
               </div>
             </div>
-          ) : (
-            <div>
-              {this.state.route === "signin" ? (
-                <SignIn loadUser={this.loadUser} onRoutChange={this.onRoutChange} />
-              ) : (
-                <Register loadUser={this.loadUser} onRoutChange={this.onRoutChange} />
-              )}
-            </div>
+          ) : this.state.route === "signin" ? ( // Check if the route is "signin"
+            <SignIn loadUser={this.loadUser} onRoutChange={this.onRoutChange} />
+          ) : ( // Default to "register" route
+            <Register loadUser={this.loadUser} onRoutChange={this.onRoutChange} />
           )}
         </div>
       </div>
     );
+    
   }
 }
 
