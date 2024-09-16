@@ -9,20 +9,9 @@
   text-align: center;
 
 }
-/* #tspp{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-} */
+
 .nav-bar{
-  /* box-shadow: #282c34;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:space-around;
-  padding: 13px;
-  width: 100%;
-  height:20vw; */
+  
   background: rgba(0, 0, 0, 2); /* Black background with 50% opacity */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
   color: white;
@@ -30,11 +19,33 @@
   display: flex;
   justify-content:flex-start;
   align-items: center;
+  width:100%;
+  position: fixed;
   z-index: 2;
   height:fit-content;
   padding: auto;
   margin-top: 0;
+  margin-bottom: 30px;
+
+
+
+  top: -100px; /* Initially hide the navbar by positioning it above the screen */
+  opacity: 0;  /* Set the initial opacity to 0 */
+  animation: slideDown 1s ease forwards;
+  
 }
+
+@keyframes slideDown {
+  0% {
+      top: -100px;
+      opacity: 0;
+  }
+  100% {
+      top: 0;
+      opacity: 1;
+  }
+}
+
 .main-content {
   position: relative;
   display: flex;
@@ -95,21 +106,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-.cont1{
-  display: flex;
-  justify-content: space-between;
-  margin: top 20px; 
-}
-.first{
-  margin: auto; /* Automatically centers the element in the flex container */
-  margin-left: 30%;
-}
-.second{
-  margin-left: auto; /* Pushes the element to the right end of the flex container */
-  text-align: right;
-  margin-right: 10px;
-}
-*{
-  overflow: none;
 }

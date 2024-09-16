@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import Navigation from './Components/Navigation/Navigation';
 import Logo from './Components/Logo/Logo';
-import Rank from './Components/Rank/Rank';
-import Imagelink from './Components/Imagelink/Imagelink';
 import FaceReco from './Components/FaceReco/FaceReco';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
 import Yapping from './Components/Yapping/Yapping';
-import ThemeChange from './Components/ThemeChange/ThemeChange';
 import DisplayProjects from './Components/Projects/Display/DisplayProjects';
 import XO from './Components/Projects/XO/XOGame';
 import ColorChanger from './Components/Projects/ColorChanger/ColorChanger';
+import Greeting from './Components/Greeting/Greeting';
+import FaceModel from './Components/FaceModel/FaceModel';
+
 
 import './App.css';
 import 'tachyons';
@@ -157,22 +157,28 @@ buttonClick = () => {
              // Render the XO component
           ) : this.state.route === "XO" ? ( // Check if the route is "bucket"
                 <XO onRoutChange={this.onRoutChange} />
-          ) : this.state.route === "home" ? ( // Check if the route is "home"
+          ) :this.state.route === "faceDetection" ?(
+              //face detection model 
+              <FaceModel
+              name ={this.state.user.name} entries={this.state.user.entries} 
+              inputChange={this.inputChange} buttonClick={this.buttonClick} 
+              imgurl={this.state.imgurl} box={this.state.box}
+              onRoutChange={this.onRoutChange}
+              />
+          ) :
+          
+            this.state.route === "home" ? ( // Check if the route is "home"
             <div>
               <div className="nav-bar">
                 <Logo />
                 <Navigation onRoutChange={this.onRoutChange} />
               </div>
               
-              <div className="cont1">
-                <div className="first">
-                  <Rank name={this.state.user.name} entries={this.state.user.entries} />
-                </div>
-                <div className="second">
-                  <ThemeChange />
-                </div>
+              <div>
+                  <Greeting />
+                  <Yapping />
               </div>
-              <Imagelink inputChange={this.inputChange} buttonClick={this.buttonClick} />
+
               <div className="main-content">
                 <div>
                   <FaceReco
@@ -182,7 +188,7 @@ buttonClick = () => {
                   />
                 </div>
                 <div>
-                  <Yapping />
+                  {/* here is yapping before */}
                   <DisplayProjects onRoutChange={this.onRoutChange} />
                 </div>
               </div>

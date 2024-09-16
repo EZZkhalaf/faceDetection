@@ -2,7 +2,7 @@
 import React from 'react';
 import './FaceReco.css';
 
-import Yapping from '../Yapping/Yapping';
+
 
 const FaceReco = ({ imgurl, box }) => {
   return (

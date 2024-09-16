@@ -1,0 +1,70 @@
+.cont1{
+    display: flex;
+    justify-content: space-between;
+    margin-top:  0%; 
+  }
+  .first{
+    margin: auto; /* Automatically centers the element in the flex container */
+    margin-left: 31%;
+    margin-top: 10%;
+    margin-bottom: 4%;
+  }
+  .second{
+    margin-left: auto; /* Pushes the element to the right end of the flex container */
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 7%;
+  }
+  *{
+    overflow: none;
+  }
+  
+  .imagecenter{
+    display: flex;
+    justify-content: center;
+  
+  }
+  
+  .fatcat90{
+    width:100%;
+    margin-top: 0%;
+    margin-bottom: 30%;
+  }
+  
+  .explain{
+    width:100%;
+    display: flex;
+    justify-content: center;
+  }
+  .play-again{
+    color: black;
+    width: 90px;
+    height: 50px;
+    margin: 15px;
+    border-radius: 200px;
+    transition: all 0.5s;
+    border : 2px solid #16141D;
+    font-size:small;
+    margin-bottom:20px ;
+    z-index: 3;
+}
+
+.play-again:hover{
+    background-color: lightgreen;
+    transform: scale(1.07);
+    
+}
+/* *{
+    overflow-y: hidden;
+    overflow-x: hidden;
+} */
+
+/* Hide scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* For the entire body or a specific element */
+body {
+    overflow: auto; /* Still allow scrolling */
+}

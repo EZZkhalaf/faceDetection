@@ -1,0 +1,43 @@
+.greet{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+    font-size: 500%;
+}
+.centering{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.talking{
+    margin-top: 2%;
+    font-size: 100%;
+    margin-bottom: 30%;
+    width: 120vh;
+    display: flex;
+    justify-content: center;
+
+}
+.fatcat69{
+    margin-bottom: 30vh;
+}
+
+@keyframes appear1 {
+    from {
+      transform: translateX(-100%); /* Start off-screen to the left */
+      opacity: 0; /* Invisible at start */
+    }
+    to {
+      transform: translateX(0); /* End at normal position */
+      opacity: 1; /* Fully visible */
+    }
+  }
+  
+  /* Class to apply the animation */
+  .text-animation {
+    animation: appear1 1.2s ease-in-out; /* Duration of 1 second */
+    opacity: 1;
+    display: inline-block; /* Ensure it's inline-block for text to move smoothly */
+    font-size: 24px; /* Example font size */
+  }

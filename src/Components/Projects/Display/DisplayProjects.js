@@ -18,8 +18,8 @@ const DisplayProjects  = ({onRoutChange}) =>{
     }
     
         return (
-            <div className="displayProjects">
-                <div >
+            <div className="displayProjects view">
+                <div className="block">
                     <button onClick={() =>onRoutChange('XO')} >
                         <Tilt className='br4 shadow-2 elementt' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20}}>
                                     XO
@@ -27,7 +27,7 @@ const DisplayProjects  = ({onRoutChange}) =>{
                     </button>
                 </div>
 
-                <div >
+                <div className="block">
                     <button onClick={() =>onRoutChange('basket')} >
                         <Tilt className='br4 shadow-2 elementt' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20 }}>
                                 random things
@@ -37,15 +37,15 @@ const DisplayProjects  = ({onRoutChange}) =>{
                     
                 </div>
                 
-                <div >
-                    <button onClick={() =>onRoutChange('XO')} >
+                <div className="block">
+                    <button onClick={() =>onRoutChange('faceDetection')} >
                         <Tilt className='br4 shadow-2 elementt ' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20}}>
-                                    XO
+                                    face Detection 
                         </Tilt>
                     </button>
                 </div>
 
-                <div >
+                <div className="block">
                     <button onClick={() =>onRoutChange('XO')} >
                         <Tilt className='br4 shadow-2 elementt ' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20}}>
                                     XO
@@ -53,7 +53,7 @@ const DisplayProjects  = ({onRoutChange}) =>{
                     </button>
                 </div>
                 
-                <div >
+                <div className="block">
                     <button onClick={() =>onRoutChange('XO')} >
                         <Tilt className='br4 shadow-2 elementt ' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20}}>
                                     XO
@@ -61,7 +61,7 @@ const DisplayProjects  = ({onRoutChange}) =>{
                     </button>
                 </div>
                 
-                <div >
+                <div className="block">
                     <button onClick={() =>onRoutChange('XO')} >
                         <Tilt className='br4 shadow-2 elementt ' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20}}>
                                     XO

@@ -4,10 +4,8 @@ import './Imagelink.css';
 const Imagelink = ({inputChange , buttonClick}) =>{
     return (
         <div>
-            <p className='f3'>
-                {'this is sign in form for duck '}
-            </p>
-            <div className='center form br4'>
+            
+            <div className='center form br4 fatcat55'>
                 <div className=' center pa4 br3 '>
                     <input 
                         className='f4 pa2 w-70 center ' 

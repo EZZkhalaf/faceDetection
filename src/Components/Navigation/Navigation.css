@@ -113,6 +113,8 @@ body {
   max-width: 600px;
   min-width: 300px;
   color: black;
+  height: fit-content;
+  margin-top: 20%;
 }
 
 /* Styling for the modal close button */
@@ -131,4 +133,5 @@ body {
   color: black;
   font-size: medium;
 }
+
 

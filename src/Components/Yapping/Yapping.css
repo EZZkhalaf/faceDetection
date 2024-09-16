@@ -2,12 +2,16 @@
    /* Yapping.css */
 
 
-    margin-top: 60vh;
+    margin-top: 10vh;
 
-    background-color: white;
+    background:none;/*add the back color */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px; /* Optional: Adjust padding as needed */
     border-radius: 8px; /* Optional: For rounded corners */
     margin-bottom: 20px;
     color: black;
+    font-size: 60vh;
+}
+.yapP{
+    font-size: medium;
 }
