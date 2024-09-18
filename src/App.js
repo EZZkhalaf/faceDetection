@@ -10,7 +10,7 @@ import XO from './Components/Projects/XO/XOGame';
 import ColorChanger from './Components/Projects/ColorChanger/ColorChanger';
 import Greeting from './Components/Greeting/Greeting';
 import FaceModel from './Components/FaceModel/FaceModel';
-
+import Todo from './Components/Projects/Todo/Todo';
 
 import './App.css';
 import 'tachyons';
@@ -152,12 +152,19 @@ buttonClick = () => {
     return (
       <div className="App">
         <div className="content">
-          {this.state.route === "basket" ? ( // Check if the route is "XO"
+          { this.state.route === 'Todo' ? (
+            //  this part added to the program but still want to implement the backend and fix some issues
+            <Todo /> //the problem here when i add an element it refresh the whole page 
+        ):
+        this.state.route === "basket" ? ( // Check if the route is "XO"
              <ColorChanger onRoutChange={this.onRoutChange}/>
              // Render the XO component
-          ) : this.state.route === "XO" ? ( // Check if the route is "bucket"
+          ) :
+          
+            this.state.route === "XO" ? ( // Check if the route is "bucket"
                 <XO onRoutChange={this.onRoutChange} />
-          ) :this.state.route === "faceDetection" ?(
+          ) :
+          this.state.route === "faceDetection" ?(
               //face detection model 
               <FaceModel
               name ={this.state.user.name} entries={this.state.user.entries} 
@@ -165,9 +172,7 @@ buttonClick = () => {
               imgurl={this.state.imgurl} box={this.state.box}
               onRoutChange={this.onRoutChange}
               />
-          ) :
-          
-            this.state.route === "home" ? ( // Check if the route is "home"
+          ) :  this.state.route === "home" ? ( // Check if the route is "home"
             <div>
               <div className="nav-bar">
                 <Logo />

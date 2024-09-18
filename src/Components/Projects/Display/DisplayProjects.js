@@ -46,28 +46,16 @@ const DisplayProjects  = ({onRoutChange}) =>{
                 </div>
 
                 <div className="block">
-                    <button onClick={() =>onRoutChange('XO')} >
+                    <button onClick={() =>onRoutChange('Todo')} >
                         <Tilt className='br4 shadow-2 elementt ' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20}}>
-                                    XO
+                                    Todo
                         </Tilt>
                     </button>
                 </div>
                 
-                <div className="block">
-                    <button onClick={() =>onRoutChange('XO')} >
-                        <Tilt className='br4 shadow-2 elementt ' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20}}>
-                                    XO
-                        </Tilt>
-                    </button>
-                </div>
                 
-                <div className="block">
-                    <button onClick={() =>onRoutChange('XO')} >
-                        <Tilt className='br4 shadow-2 elementt ' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20}}>
-                                    XO
-                        </Tilt>
-                    </button>
-                </div>
+                
+                
 
 
             </div>

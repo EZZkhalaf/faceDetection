@@ -79,11 +79,15 @@ const XO = ({onRoutChange}) => {
         ))}
       </div>
       <h2 id="result1">{result}</h2>
+      <div className="buttons">
+      <button className="play-again" onClick={() => onRoutChange('home')}>go home </button>
+      </div>
       {isGameOver && <div className="buttons">
         <button className="play-again" onClick={handlePlayAgain}>Play Again</button>
-        <button className="play-again" onClick={() => onRoutChange('home')}>go home </button>
+        
       </div>
       }
+     
     </div>
   );
 };

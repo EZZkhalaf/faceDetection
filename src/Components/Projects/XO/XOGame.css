@@ -90,6 +90,8 @@ body{
     font-size:small;
     margin-bottom:20px ;
     z-index: 3;
+    display: flex;
+    justify-content: end;
 }
 
 .play-again:hover{
@@ -116,3 +118,4 @@ p{
     align-items: center;
     flex-direction: column;
 }
+
