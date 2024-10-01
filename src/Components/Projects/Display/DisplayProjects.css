@@ -44,3 +44,6 @@ button{
     animation-timeline: view();
     animation-range: entry 0% cover 40% ;
 }
+*{
+    z-index: 0;
+}

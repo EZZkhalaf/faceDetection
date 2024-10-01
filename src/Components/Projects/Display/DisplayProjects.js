@@ -46,9 +46,9 @@ const DisplayProjects  = ({onRoutChange}) =>{
                 </div>
 
                 <div className="block">
-                    <button onClick={() =>onRoutChange('Todo')} >
+                    <button onClick={() =>window.location.href = 'https://test-chat-j244.onrender.com'} >
                         <Tilt className='br4 shadow-2 elementt ' options={defaultOptions} style={{ height: '50vh', width: '60vh' ,border:'2px solid black' ,backgroundColor:'#2B4262' ,margin:20}}>
-                                    Todo
+                                    chat-App
                         </Tilt>
                     </button>
                 </div>
